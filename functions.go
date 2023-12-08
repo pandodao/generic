@@ -76,3 +76,17 @@ func SortMapKeys[K cmp.Ordered, V any](m map[K]V) []K {
 
 	return keys
 }
+
+func IndexSlice[T comparable](s []T, v T) int {
+	for i, t := range s {
+		if t == v {
+			return i
+		}
+	}
+
+	return -1
+}
+
+func ContainSlice[T comparable](s []T, v T) bool {
+	return IndexSlice(s, v) >= 0
+}
